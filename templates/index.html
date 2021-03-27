@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css" >
+    <title>Graph Algorithms</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Graphs</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url_for('view_home') }}">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('view_prims') }}">Prims's Algorithm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('view_Kruskal') }}">Kruskal's Algorithm</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+        
+        
+        
+        <div class="jumbotron">
+            <h1 class="display-4">
+          		{% if title %}
+          		  {{ title }}
+          		{% endif %}
+	        </h1>
+            <p style = "font-size:20px;">
+                Data structures are means to store and organise data and Graphs is one such non-linear data structure used to model and represent variety of systems. 
+                Here you will learn everything right from the basics of this widely used data structure to a few commonly used Graph based algorithms, So let’s jump right in.
+                Graphs are defined as a pair of sets (V, E), where V is the set of vertices and E is the set of edges, connecting the pairs of vertices. In Simpler terms imagine graphs as set of objects a few of which are connected to each other, These objects are represented by vertices and the connections by edges. 
+            </p>
+            <img src="{{ img1 }}" class="mx-auto d-block">
+            <p style = "font-size:20px;">
+                In the image above we can see the vertices are 1,2,3,4,5 and the edges are (1,2) , (2,4), (3,4),(1,5) and (5,2)
+Some graphs can be weighted , that is there would be values that show the indication of strength of connection between nodes.
+            </p>
+            <img src="{{ img2 }}" class="mx-auto d-block">
+            <p style = "font-size:20px;">
+observing this graph  we can see the weight of edge between (1,2) is 10, (2,3) is 15 , (3,4) is 5 and so on.
+Having understood these basic concepts let us explore further
+            </p>
+            <h2>Undirected vs Directed Graphs</h2>
+            <p style = "font-size:20px;">
+The graphs we saw till now were undirected , that is the edges are bidirectional, with no direction associated with them. Hence, the graph can be traversed in either direction.
+There is another type called directed in which The edges of the graph represent a specific direction from one vertex to another. When there is an edge representation as (V1, V2), the direction is from V1 to V2. The first element V1 is the initial node or the start vertex. The second element V2 is the terminal node or the end vertex. 
+
+            </p>
+            <h4>Directed Graph</h4>
+            <img src="{{ img3 }}" height=450 class="mx-auto d-block">
+            <h4>Undirected Graph</h4>
+            <img src="{{ img4 }}" height=450 class="mx-auto d-block">
+            
+            <h2>Graph Representations</h2>
+            <p style = "font-size:20px;">
+                <b>Adjacency matrix:</b><br>
+The adjacency matrix of a graph is the matrix A  is labelled as 1 or 0 according to whether the vertex vi  is adjacent to the vertex vj or not , that is it is labelled 1 if there is an edge between vertex i and vertex j. In case of weighted graph we use the weights instead of marking presence of edge by 1.
+            </p>
+            <img src="{{ img1 }}" class="mx-auto d-block">
+            <br><br><br>
+            <img src="{{ img5 }}">
+            <h2>Adjacency List:</h2>
+                <p style = "font-size:20px;">Adjacency list is a linked representation. In this representation, for each vertex in the graph, we maintain the list of its neighbours. It means, every vertex of the graph contains list of its adjacent vertices. We have an array of vertices which is indexed by the vertex number and for each vertex v, the corresponding array element points to a singly linked list of neighbours of v.
+                </p>
+            <img src="{{ img6 }}">
+            <img src="{{ img7 }}">  
+            <h1>Graph Operations</h1>
+            <h3>Addition of nodes and edges</h3>
+            <p style = "font-size:20px;">There are nodes, each node has a value. There are edges that are connecting these nodes, where each edge have some weight.</p>
+            <img src="{{ img }}" class="mx-auto d-block">
+            <br><br>
+<h2>Real life applications:</h2>
+    <p style = "font-size:20px;">
+Have you ever thought about how Google Maps or  your GPS is able to show you the shortest path to your destination? Applications such as Google Maps are able to do that using a class of algorithms called Shortest Path Finding Algorithms by assigning each location as a node and paths as edges with distances as weight.
+Similarly Facebook and other social networking sites use graphs to suggest friends. Each person is a node and they have an edge to their friends and neighbours of these friend vertices can be suggested as friends to user.
+These are just few of the many applications this data structure has to offer.
+</p>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
