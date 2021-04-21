@@ -1,0 +1,88 @@
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css" >
+    <title>Graph Algorithms</title>
+  </head>
+  <style>
+    #hideValuesOnSelect {
+       display: none;
+    }
+ </style>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Graphs</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="{{ url_for('view_home') }}">Home<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('view_prims') }}">Prims's Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('view_Kruskal') }}">Kruskal's Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('view_dij1') }}">Dijkstras Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('index') }}">Visualize your graph</a>
+                  </li>
+              </ul>
+              
+          </div>
+      </nav>
+      <br><br>
+      <h3> Provide your graph details</h3>
+    <form action="/kruskal4" method="post" target="_blank">
+      <label for="vertices">Number of Vertices: </label><br>
+      <input type="number" id="vertices" name="vertices">
+      <br><br>
+      <label for="edges">Number of Edges: </label><br>
+      <input type="number" id="edges" name="edges">
+      <br><br>
+      <label for="edgelist">Give the edgelist: </label><br>
+      <textarea id="edgelist" name="edgelist" rows="6" cols="30"></textarea>
+      <br><br>
+      <label for="algo">Choose an Algorithm:</label>
+      <select id="algo" name="algo" onchange="displayDivDemo('hideValuesOnSelect', this)">
+      <option value="Prims">Prims</option>
+      <option value="Dijkstras">Dijkstras</option>
+      <option value="Kruskal">Kruskal</option>
+      </select>
+      <br><br>
+      
+      <div id="hideValuesOnSelect">
+        <label for="source">Give the source: </label><br>
+        <input type="number" id="source" name="source">
+        <br><br>
+        <label for="destination">Give the destination: </label><br>
+        <input type="number" id="destination" name="destination">
+        <br><br>
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+  <script>
+    function displayDivDemo(id, elementValue) {
+       document.getElementById(id).style.display = elementValue.value ==  "Dijkstras" ? 'block' : 'none';
+    }
+ </script>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>
